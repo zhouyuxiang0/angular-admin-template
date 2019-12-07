@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgModule } from '@angular/core';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { SharedModule } from './shared/shared.module';
     MatSidenavModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule,
-    SharedModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

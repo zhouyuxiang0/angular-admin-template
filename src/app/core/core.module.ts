@@ -1,37 +1,26 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { loadSvgResources } from '../utils/svg.utils';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { SharedModule } from '../shared/shared.module';
+import { MatButtonModule, MatIconModule, MatToolbarModule } from '@angular/material';
+
+import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { NgModule } from '@angular/core';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    SidenavComponent
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent],
+  imports: [
+    CommonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
-  imports: [SharedModule],
   exports: [
     HeaderComponent,
-    SidenavComponent
-  ],
-  providers: [{
-    provide: 'BASE_CONFIG',
-    useValue: {
-      uri: 'http://localhost:3000'
-    }
-  }]
+    FooterComponent,
+    SidebarComponent,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
+  ]
 })
-export class CoreModule {
-  constructor(
-    @Optional() @SkipSelf() parent: CoreModule,
-    matIconRegist: MatIconRegistry,
-    domSanitizer: DomSanitizer
-  ) {
-    if (parent) {
-      throw new Error('模块已经存在，不能再次加载!');
-    }
-    loadSvgResources(matIconRegist, domSanitizer);
-  }
-}
+export class CoreModule { }
