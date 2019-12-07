@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+$angular-admin-template-primary: mat-palette($mat-indigo);
+$angular-admin-template-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$angular-admin-template-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$angular-admin-template-theme: mat-light-theme($angular-admin-template-primary, $angular-admin-template-accent, $angular-admin-template-warn);
